@@ -216,3 +216,25 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .book-tile.is-album .book-sub{margin-top:1.4%;font-size:9.5px;letter-spacing:.12em;color:rgba(255,255,255,.66)}
 .book-tile.is-album .book-rule{margin:3.4% 0 0;width:18%}
 .book-tile.is-album .book-count{font-size:9px;letter-spacing:.18em;color:rgba(255,255,255,.55)}
+
+/* ============================== 横屏时给书更多空间 ============================== */
+@media (orientation: landscape) and (max-height: 600px) {
+  .reader-bar{padding:calc(env(safe-area-inset-top,0px) + 4px) 10px 2px;font-size:11px;letter-spacing:.1em}
+  .reader-back{padding:3px 10px;font-size:11px}
+  .reader-title{font-size:14px}
+  .reader-status{min-width:44px;font-size:11px}
+  .reader-stage{padding:0 6px;margin:0}
+  /* 翻页按钮改为左右悬浮，不再占高度 */
+  .reader-controls{
+    position:fixed;left:0;right:0;top:52%;transform:translateY(-50%);
+    display:flex;justify-content:space-between;align-items:center;
+    padding:0 calc(env(safe-area-inset-left,0px) + 8px) 0 calc(env(safe-area-inset-right,0px) + 8px);
+    pointer-events:none;background:none;
+  }
+  .reader-controls button{
+    pointer-events:auto;width:42px;height:42px;font-size:17px;
+    background:rgba(10,9,13,.45);border-color:rgba(244,239,230,.28);
+    backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  }
+  .reader-hint{display:none}
+}
