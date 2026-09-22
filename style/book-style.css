@@ -1,0 +1,325 @@
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-Regular.otf.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("fonts/SourceSerif4-It.otf.woff2") format("woff2");font-weight:400;font-style:italic;font-display:swap}
+
+:root{
+  --paper:#f7f6f0; --ink:#292c26; --cloth:#7d8572; --muted:#73766c;
+  --serif:"Source Serif 4","Songti SC","Noto Serif CJK SC",Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,Arial,"PingFang SC",sans-serif;
+}
+.art-page{container-type:inline-size;position:relative;aspect-ratio:var(--page-ratio,.8);overflow:hidden;
+  background:var(--paper) url("paper-grain.svg") repeat;color:var(--ink);
+  font-family:var(--serif);font-weight:400;-webkit-font-smoothing:antialiased}
+.art-page img{display:block;border:0;border-radius:0;filter:none}
+.art-page.cloth{background:var(--cloth) url("cloth-weave.svg") repeat;color:#f2efdf}
+.art-page.endpaper{background-color:#e9e9dc;background-image:none}
+
+/* cover / back */
+.pg-cover,.pg-back{padding:0}
+.pg-cover .cover-inner{position:absolute;inset:0;padding:9cqw}
+.cover-kicker{position:absolute;left:13%;top:11%;margin:0;font:400 1.8cqw/1 var(--sans);letter-spacing:.28em;opacity:.7}
+.cover-title{position:absolute;left:13%;right:11%;top:23%;margin:0;font:400 8.4cqw/1.14 var(--serif);letter-spacing:.01em}
+.cover-subtitle{position:absolute;left:13%;top:52%;margin:0;font:400 2.2cqw/1.5 var(--serif);letter-spacing:.06em;opacity:.86}
+.cover-rule{position:absolute;left:13%;top:48%;width:16%;height:1px;background:currentColor;opacity:.45}
+.cover-foot{position:absolute;left:13%;bottom:9%;right:13%;margin:0;font:400 1.6cqw/1.5 var(--sans);letter-spacing:.16em;opacity:.68}
+.cover-stamp{position:absolute;right:11%;bottom:9%;width:11cqw;height:11cqw;border:1px solid currentColor;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:4.4cqw;opacity:.72}
+.pg-back .back-inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:2.4cqw}
+.pg-back .back-title{margin:0;font:400 3.4cqw/1.3 var(--serif)}
+.pg-back .back-sub{margin:0;font:400 1.7cqw/1.4 var(--sans);letter-spacing:.18em;opacity:.66}
+
+/* endpaper */
+.pg-endpaper .endpaper-mark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font:400 16cqw/1 var(--serif);color:#c9c9b4;letter-spacing:.1em}
+
+/* title page */
+.pg-title .title-page{position:absolute;left:16%;right:14%;top:22%}
+.title-kicker{margin:0 0 6cqw;font:400 1.6cqw/1 var(--sans);letter-spacing:.3em;color:var(--muted)}
+.pg-title h2{margin:0 0 5cqw;font:400 6cqw/1.24 var(--serif);letter-spacing:.02em}
+.title-rule{width:22%;height:1px;background:var(--ink);opacity:.35;margin:0 0 5cqw}
+.title-subtitle{margin:0 0 3cqw;font:400 2.3cqw/1.5 var(--serif)}
+.title-note{margin:0;font:400 1.9cqw/1.7 var(--sans);color:var(--muted)}
+.title-seal{position:absolute;right:13%;bottom:11%;width:12cqw;height:12cqw;border:1px solid var(--ink);opacity:.3;
+  display:flex;align-items:center;justify-content:center;font-size:4.6cqw}
+
+/* quote */
+.pg-quote .quote-body{position:absolute;left:16%;right:16%;top:50%;transform:translateY(-50%)}
+.pg-quote blockquote{margin:0;font:400 3.3cqw/1.9 var(--serif);white-space:pre-line;letter-spacing:.02em}
+.pg-quote .quote-mark{font:400 7cqw/1 var(--serif);color:#b9bcae;display:block;margin-bottom:3cqw}
+
+/* section */
+.pg-section .section-page{position:absolute;left:16%;right:14%;top:24%}
+.section-eyebrow{margin:0 0 5cqw;font:400 1.6cqw/1 var(--sans);letter-spacing:.3em;color:var(--muted)}
+.section-number{margin:0 0 2cqw;font:400 13cqw/1 var(--serif);color:#c6c8ba}
+.pg-section h2{margin:0 0 4cqw;font:400 6.4cqw/1.2 var(--serif);letter-spacing:.04em}
+.pg-section p{margin:0;font:400 2.1cqw/1.8 var(--serif);color:#5d6055}
+.pg-section .folio{position:absolute;bottom:6%;right:8%;margin:0;font:400 1.5cqw/1 var(--serif);color:var(--muted)}
+
+/* photo pages */
+.pg-photo,.pg-duo,.pg-quad{padding:0}
+.photo-card{margin:0;display:flex;flex-direction:column;min-height:0;min-width:0;gap:1.5cqw;height:100%;overflow:hidden}
+.photo-card img{flex:1 1 auto;min-height:0;width:100%;object-fit:contain;box-shadow:0 1px 3px rgb(38 36 30 / 16%)}
+.photo-card figcaption{flex:0 0 auto;font:400 1.6cqw/1.4 var(--sans);color:#6b6e63;text-align:center;letter-spacing:.04em}
+.pg-photo .grid,.pg-duo .grid,.pg-quad .grid{position:absolute;display:grid;gap:3.4cqw}
+.pg-photo .grid{inset:7cqw 7cqw 9cqw;grid-template-columns:1fr;grid-template-rows:1fr}
+.pg-duo .grid{inset:6cqw 7cqw 8cqw;grid-template-columns:1fr;grid-template-rows:1fr 1fr}
+.pg-quad .grid{inset:6cqw 6cqw 8cqw;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr}
+
+/* letter */
+.pg-letter .letter-body{position:absolute;left:15%;right:15%;top:50%;transform:translateY(-50%)}
+.letter-title{margin:0 0 5cqw;font:400 3.6cqw/1.4 var(--serif);letter-spacing:.03em}
+.letter-body p{margin:0 0 3cqw;font:400 2.5cqw/2 var(--serif);letter-spacing:.01em}
+.letter-sign{margin-top:7cqw;text-align:right;font:400 2.3cqw/1.8 var(--serif);color:#5d6055}
+
+/* closing */
+.pg-closing .closing-body{position:absolute;left:14%;right:14%;top:50%;transform:translateY(-50%);text-align:center}
+.closing-kicker{margin:0 0 6cqw;font:400 1.5cqw/1 var(--sans);letter-spacing:.34em;color:var(--muted)}
+.pg-closing h2{margin:0 0 6cqw;font:400 4.4cqw/1.75 var(--serif);white-space:pre-line}
+.closing-note{margin:0;font:400 1.9cqw/1.6 var(--sans);color:var(--muted)}
+
+/* colophon */
+.pg-colophon .colophon{position:absolute;left:16%;right:16%;top:50%;transform:translateY(-50%)}
+.colophon-title{margin:0 0 4cqw;font:400 3cqw/1.3 var(--serif)}
+.colophon p{margin:0 0 2.4cqw;font:400 1.9cqw/1.8 var(--sans);color:#63665b}
+
+.book-page.art-page.--left::before,
+.book-page.art-page.--right::before{content:"";position:absolute;inset:0;pointer-events:none;z-index:3}
+.book[data-layout="portrait"] .book-page.art-page::before{content:none}
+.book-page.art-page.--left::before{background:linear-gradient(to left,rgb(28 30 24 / 13%),rgb(28 30 24 / 3%) 42%,transparent)}
+.book-page.art-page.--right::before{background:linear-gradient(to right,rgb(28 30 24 / 13%),rgb(28 30 24 / 3%) 42%,transparent)}
+
+/* ============================== 页面装饰（白边） ============================== */
+.art-page{--deco:rgba(126,116,96,.6);--deco-line:rgba(126,116,96,.22)}
+.art-page.has-photo,.pg-section.has-photo{--deco:rgba(247,243,233,.62);--deco-line:rgba(247,243,233,.30)}
+
+/* 内框线 + 四角小圆点 */
+.art-page .pg-deco{
+  position:absolute;inset:2.6cqw;z-index:4;pointer-events:none;
+  border:.18cqw solid var(--deco-line);
+  background:
+    radial-gradient(circle at center,var(--deco) 0 .36cqw,rgba(0,0,0,0) .40cqw) left top/1.05cqw 1.05cqw no-repeat,
+    radial-gradient(circle at center,var(--deco) 0 .36cqw,rgba(0,0,0,0) .40cqw) right top/1.05cqw 1.05cqw no-repeat,
+    radial-gradient(circle at center,var(--deco) 0 .36cqw,rgba(0,0,0,0) .40cqw) left bottom/1.05cqw 1.05cqw no-repeat,
+    radial-gradient(circle at center,var(--deco) 0 .36cqw,rgba(0,0,0,0) .40cqw) right bottom/1.05cqw 1.05cqw no-repeat;
+}
+/* 顶部饰纹：短线 + 小菱形 + 短线 */
+.art-page .pg-orn{
+  position:absolute;left:50%;top:3.5cqw;width:11cqw;height:1.2cqw;z-index:4;
+  transform:translateX(-50%);pointer-events:none;
+  background:
+    linear-gradient(var(--deco),var(--deco)) left center/3.6cqw .1cqw no-repeat,
+    linear-gradient(var(--deco),var(--deco)) right center/3.6cqw .1cqw no-repeat,
+    linear-gradient(45deg,rgba(0,0,0,0) 46%,var(--deco) 47% 53%,rgba(0,0,0,0) 54%) center center/1.2cqw 1.2cqw no-repeat,
+    linear-gradient(-45deg,rgba(0,0,0,0) 46%,var(--deco) 47% 53%,rgba(0,0,0,0) 54%) center center/1.2cqw 1.2cqw no-repeat;
+}
+/* 页码：跟每本书主题色走 */
+.art-page .pg-folio{
+  position:absolute;left:50%;bottom:4cqw;transform:translateX(-50%);z-index:4;pointer-events:none;
+  display:flex;align-items:center;gap:1.5cqw;
+  font:400 1.55cqw/1 var(--serif);letter-spacing:.26em;
+  color:color-mix(in srgb,var(--accent,#7d8572) 62%,#4d4a42);
+}
+.art-page .pg-folio::before,.art-page .pg-folio::after{
+  content:"";display:block;width:2.8cqw;height:.1cqw;
+  background:color-mix(in srgb,var(--accent,#7d8572) 55%,transparent)
+}
+.art-page .folio{color:color-mix(in srgb,var(--accent,#7d8572) 60%,#5d6055)}
+
+/* ---------- 照片：白色相纸 + 微倾 + 胶带 ---------- */
+.photo-card{position:relative;overflow:visible}
+.photo-card img{
+  background:#fff;
+  padding:1.5cqw 1.5cqw 2.2cqw;
+  box-shadow:0 .38cqw 1.4cqw rgba(38,36,30,.30),0 .1cqw 0 rgba(255,255,255,.9) inset,0 0 0 .12cqw rgba(38,36,30,.09);
+  transform:rotate(var(--tilt,0deg));
+}
+.pg-photo .photo-card img{--tilt:-.5deg}
+.pg-duo .grid .photo-card:nth-child(1) img{--tilt:-.9deg}
+.pg-duo .grid .photo-card:nth-child(2) img{--tilt:.8deg}
+.pg-quad .grid .photo-card:nth-child(1) img{--tilt:-.7deg}
+.pg-quad .grid .photo-card:nth-child(2) img{--tilt:.6deg}
+.pg-quad .grid .photo-card:nth-child(3) img{--tilt:.5deg}
+.pg-quad .grid .photo-card:nth-child(4) img{--tilt:-.6deg}
+
+/* 和纸胶带（只在单张照片的页面出现） */
+.pg-photo .photo-card::after{
+  content:"";position:absolute;z-index:3;top:-1.2cqw;left:50%;
+  width:10cqw;height:3.4cqw;transform:translateX(-50%) rotate(-3.5deg);
+  background:linear-gradient(180deg,rgba(238,229,204,.94),rgba(224,212,182,.80));
+  box-shadow:0 .22cqw .7cqw rgba(38,36,30,.16);
+}
+.pg-photo .photo-card:nth-child(even)::after{
+  left:36%;transform:translateX(-50%) rotate(3deg);
+  background:linear-gradient(180deg,rgba(226,222,232,.92),rgba(210,206,220,.78));
+}
+
+/* ---------- 封面照片窗 ---------- */
+.pg-cover .cover-plate{
+  position:absolute;left:13%;right:13%;top:57%;bottom:23%;z-index:2;overflow:hidden;
+  border:.85cqw solid rgba(246,242,230,.95);
+  box-shadow:0 1.1cqw 2.6cqw rgba(0,0,0,.42);
+  transform:rotate(-.8deg);background:#2a2620;
+}
+.pg-cover .cover-plate img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- 章节页：满版大图 ---------- */
+.pg-section.has-photo{background:#141210}
+.pg-section .section-photo{position:absolute;inset:0;z-index:0;overflow:hidden}
+.pg-section .section-photo img{width:100%;height:100%;object-fit:cover}
+.pg-section .section-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(16,14,12,.74) 0%,rgba(16,14,12,.30) 40%,rgba(16,14,12,.52) 70%,rgba(16,14,12,.88) 100%);
+}
+.pg-section.has-photo .section-page{z-index:2;color:#f7f3e9;text-shadow:0 .2cqw 1.4cqw rgba(0,0,0,.55)}
+.pg-section.has-photo .section-eyebrow{color:rgba(247,243,233,.70)}
+.pg-section.has-photo .section-number{color:rgba(247,243,233,.26)}
+.pg-section.has-photo p{color:rgba(247,243,233,.90)}
+.pg-section.has-photo .folio{color:rgba(247,243,233,.78)}
+
+/* ---------- 环衬：主题色淡染 + 点纹 ---------- */
+.art-page.endpaper{
+  background-color:color-mix(in srgb,var(--accent,#7d8572) 13%,#eceade);
+  background-image:radial-gradient(circle at center,rgba(120,112,92,.26) 0 .9px,rgba(120,112,92,0) 1.1px);
+  background-size:13px 13px;
+}
+
+/* ============================== 手写体 & 真实纸纹 ============================== */
+.art-page{
+  --hand:"Ma Shan Zheng","Source Serif 4","Songti SC",serif;
+  --script:"Caveat","Source Serif 4",serif;
+  background-color:var(--paper);
+  background-image:url("tex/natural-paper.png"),url("paper-grain.svg");
+  background-repeat:repeat,repeat;
+}
+.art-page.endpaper{
+  background-color:color-mix(in srgb,var(--accent,#7d8572) 12%,#eceade);
+  background-image:url("tex/cream-paper.png"),radial-gradient(circle at center,rgba(120,112,92,.22) 0 .9px,rgba(120,112,92,0) 1.1px);
+  background-size:160px 146px,13px 13px;
+  background-repeat:repeat,repeat;
+}
+/* 手写体用在标题/引语/页码 */
+.cover-title{font-family:var(--hand);font-size:9.4cqw;letter-spacing:.02em}
+.pg-title h2{font-family:var(--hand);font-size:6.8cqw}
+.back-title{font-family:var(--hand);font-size:3.8cqw}
+.colophon-title{font-family:var(--hand);font-size:3.4cqw}
+.pg-quote blockquote{font-family:var(--hand);font-size:3.7cqw;line-height:2.05}
+.pg-section h2{font-family:var(--hand);font-size:7.4cqw;letter-spacing:.05em}
+.pg-closing h2{font-family:var(--hand);font-size:5.1cqw;line-height:1.95}
+.letter-title{font-family:var(--hand);font-size:4.3cqw}
+.endpaper-mark{font-family:var(--hand);opacity:.5}
+.section-number{font-family:var(--script);font-size:15cqw;line-height:1}
+.art-page .pg-folio{font-family:var(--script);font-size:2.1cqw;letter-spacing:.08em}
+.section-eyebrow,.title-kicker,.closing-kicker,.cover-kicker{font-family:var(--script);letter-spacing:.16em;font-size:2cqw}
+.cover-foot,.back-sub{font-family:var(--script);letter-spacing:.12em;font-size:1.9cqw}
+/* 植物小枝装饰 */
+.pg-quote::after,.pg-closing::after{
+  content:"";position:absolute;left:50%;bottom:7.2cqw;width:13cqw;height:18cqw;transform:translateX(-50%);
+  background:url("ornament-sprig.svg") no-repeat center/contain;opacity:.55;pointer-events:none;z-index:2;
+}
+.pg-endpaper::after{
+  content:"";position:absolute;left:50%;top:50%;width:44cqw;height:61cqw;transform:translate(-50%,-50%);
+  background:url("ornament-sprig.svg") no-repeat center/contain;opacity:.16;pointer-events:none;
+}
+
+/* ============================== 再加一层装饰 ============================== */
+/* 每本书自己的纸纹 */
+.art-page{
+  background-color:var(--paper,#f7f6f0);
+  background-image:url("tex/natural-paper.png"),url("paper-grain.svg");
+  background-repeat:repeat,repeat;
+}
+/* 照片四角相角 */
+.photo-card::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:
+    linear-gradient(135deg,rgba(96,86,66,.55) 0 50%,rgba(0,0,0,0) 50%) left top/2.5cqw 2.5cqw no-repeat,
+    linear-gradient(225deg,rgba(96,86,66,.55) 0 50%,rgba(0,0,0,0) 50%) right top/2.5cqw 2.5cqw no-repeat,
+    linear-gradient(45deg,rgba(96,86,66,.55) 0 50%,rgba(0,0,0,0) 50%) left bottom/2.5cqw 2.5cqw no-repeat,
+    linear-gradient(315deg,rgba(96,86,66,.55) 0 50%,rgba(0,0,0,0) 50%) right bottom/2.5cqw 2.5cqw no-repeat;
+}
+/* 更多胶带（双张/四张页面各一条，颜色不同） */
+.pg-duo .grid .photo-card:nth-child(1)::after{
+  content:"";position:absolute;z-index:3;top:-1.1cqw;left:20%;width:8.8cqw;height:3.1cqw;
+  transform:rotate(-4.5deg);background:linear-gradient(180deg,rgba(228,216,192,.92),rgba(210,196,168,.78));
+  box-shadow:0 .2cqw .6cqw rgba(38,36,30,.14);
+}
+.pg-quad .grid .photo-card:nth-child(3)::after{
+  content:"";position:absolute;z-index:3;top:-1cqw;right:16%;width:8.2cqw;height:2.9cqw;
+  transform:rotate(5deg);background:linear-gradient(180deg,rgba(214,222,216,.92),rgba(196,208,200,.78));
+  box-shadow:0 .2cqw .6cqw rgba(38,36,30,.14);
+}
+/* 随机圆形印章 */
+.art-page .pg-seal{
+  position:absolute;right:5.4cqw;bottom:4.4cqw;width:9.4cqw;height:9.4cqw;border-radius:50%;z-index:4;
+  display:flex;align-items:center;justify-content:center;pointer-events:none;
+  font-family:var(--hand);font-size:4.2cqw;line-height:1;
+  color:color-mix(in srgb,var(--accent,#7d8572) 78%,#4a3f33);
+  border:.32cqw solid currentColor;opacity:.55;transform:rotate(-9deg);
+}
+.art-page .pg-seal::after{content:"";position:absolute;inset:.85cqw;border-radius:50%;border:.1cqw solid currentColor;opacity:.75}
+/* 页边小涂鸦 */
+.art-page .pg-doodle{
+  position:absolute;left:5.6cqw;bottom:4.6cqw;width:6.2cqw;height:5.6cqw;z-index:4;pointer-events:none;
+  background:url("ornament-heart.svg") no-repeat center/contain;opacity:.5;transform:rotate(-8deg);
+}
+.art-page .pg-doodle.is-star{
+  left:auto;right:5.6cqw;top:3.2cqw;bottom:auto;width:5.4cqw;height:5.4cqw;
+  background-image:url("ornament-star.svg");transform:rotate(9deg);opacity:.45;
+}
+/* 封面丝带 */
+.pg-cover::after{
+  content:"";position:absolute;top:0;left:17.5%;width:4.4cqw;height:37%;z-index:3;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent,#7d8572) 62%,#fff 14%) 0%,color-mix(in srgb,var(--accent,#7d8572) 48%,#241f1a) 100%);
+  box-shadow:0 .45cqw 1.2cqw rgba(0,0,0,.38);
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 86%,0 100%);
+  transform:rotate(1.8deg);transform-origin:top center;
+}
+
+/* ============================== 每本书一套装饰 ============================== */
+/* 章节页：主题色软调 */
+.pg-section.has-photo::after{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;mix-blend-mode:soft-light;
+  background:linear-gradient(180deg,color-mix(in srgb,var(--accent,#1d4a45) 42%,transparent) 0%,transparent 45%,color-mix(in srgb,var(--accent,#1d4a45) 48%,transparent) 100%);
+}
+/* --- 遇见你：暖木纸 · 心形 · 米色胶带 · 圆点环衬 --- */
+.book[data-book="meet"] .art-page{background-image:url("tex/natural-paper.png"),radial-gradient(circle at 12% 88%,rgba(190,140,120,.10) 0 22cqw,rgba(0,0,0,0) 23cqw),url("paper-grain.svg")}
+.book[data-book="meet"] .pg-doodle{background-image:url("ornament-heart.svg")}
+.book[data-book="meet"] .photo-card::after{background:linear-gradient(180deg,rgba(238,223,205,.94),rgba(221,201,177,.80))}
+.book[data-book="meet"] .art-page.endpaper{
+  background-image:url("tex/cream-paper.png"),radial-gradient(circle at center,rgba(168,116,102,.26) 0 .9px,rgba(0,0,0,0) 1.1px);
+  background-size:160px 146px,11px 11px;
+}
+/* --- 日常有光：奶油横线纸 · 星星 · 灰绿胶带 · 斜线环衬 --- */
+.book[data-book="daily"] .art-page{background-image:url("tex/cream-paper.png"),repeating-linear-gradient(180deg,rgba(124,132,106,.20) 0 1px,rgba(0,0,0,0) 1px 26px),url("paper-grain.svg")}
+.book[data-book="daily"] .pg-doodle{background-image:url("ornament-star.svg")}
+.book[data-book="daily"] .photo-card::after{background:linear-gradient(180deg,rgba(224,232,214,.94),rgba(203,215,193,.80))}
+.book[data-book="daily"] .art-page.endpaper{
+  background-image:url("tex/cream-paper.png"),repeating-linear-gradient(45deg,rgba(124,132,106,.18) 0 1px,rgba(0,0,0,0) 1px 10px);
+  background-size:160px 146px,auto;
+}
+/* --- 重庆之旅：网格纤维纸 · 山峦 · 青绿胶带 · 斜纹环衬 --- */
+.book[data-book="cq"] .art-page{background-image:url("tex/paper-fibers.png"),repeating-linear-gradient(180deg,rgba(30,80,78,.13) 0 1px,rgba(0,0,0,0) 1px 28px),repeating-linear-gradient(90deg,rgba(30,80,78,.10) 0 1px,rgba(0,0,0,0) 1px 28px),url("paper-grain.svg")}
+.book[data-book="cq"] .pg-doodle{background-image:url("ornament-mountain.svg");opacity:.42}
+.book[data-book="cq"] .photo-card::after{background:linear-gradient(180deg,rgba(206,226,221,.94),rgba(184,208,203,.80))}
+.book[data-book="cq"] .art-page.endpaper{
+  background-image:url("tex/paper-fibers.png"),repeating-linear-gradient(135deg,rgba(24,74,69,.18) 0 1px,rgba(0,0,0,0) 1px 11px);
+  background-size:auto,auto;
+}
+/* --- 聊过的每一天：点阵纸 · 聊天气泡 · 淡蓝胶带 · 点阵环衬 --- */
+.book[data-book="chat"] .art-page{background-image:url("tex/natural-paper.png"),radial-gradient(circle at center,rgba(78,116,128,.26) 0 1px,rgba(0,0,0,0) 1.2px),url("paper-grain.svg");background-size:auto,18px 18px,auto}
+.book[data-book="chat"] .pg-doodle{background-image:url("ornament-bubble.svg")}
+.book[data-book="chat"] .pg-seal{border-radius:1.8cqw}
+.book[data-book="chat"] .photo-card::after{background:linear-gradient(180deg,rgba(214,224,234,.94),rgba(192,206,222,.80))}
+.book[data-book="chat"] .art-page.endpaper{
+  background-image:url("tex/natural-paper.png"),radial-gradient(circle at center,rgba(78,116,128,.30) 0 .9px,rgba(0,0,0,0) 1.1px);
+  background-size:auto,12px 12px;
+}
+/* --- 写给你：信纸（横线+竖线）· 信封 · 藕粉胶带 · 邮票方印 --- */
+.book[data-book="letter"] .art-page{background-image:url("tex/cream-paper.png"),repeating-linear-gradient(180deg,rgba(150,112,92,.18) 0 1px,rgba(0,0,0,0) 1px 27px),linear-gradient(90deg,rgba(0,0,0,0) 0 34px,rgba(158,104,92,.30) 34px 35px,rgba(0,0,0,0) 35px),url("paper-grain.svg")}
+.book[data-book="letter"] .pg-doodle{background-image:url("ornament-envelope.svg")}
+.book[data-book="letter"] .photo-card::after{background:linear-gradient(180deg,rgba(240,222,216,.94),rgba(226,200,193,.80))}
+.book[data-book="letter"] .pg-seal{border-radius:2px;transform:rotate(-2deg)}
+.book[data-book="letter"] .pg-seal::after{border-radius:1px;inset:.7cqw;border-style:dashed}
+.book[data-book="letter"] .art-page.endpaper{
+  background-image:url("tex/cream-paper.png"),repeating-linear-gradient(180deg,rgba(150,112,92,.16) 0 1px,rgba(0,0,0,0) 1px 13px);
+  background-size:160px 146px,auto;
+}
